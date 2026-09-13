@@ -19,8 +19,7 @@ spec:
       containers:
         - name: eks-cicd-app
 
-          image: image: 371637912601.dkr.ecr.us-east-1.amazonaws.com/eks-ecr-cicd-app:a26123c3cf58d0131d4a48a98cb964014e04f48c
-
+          image: 371637912601.dkr.ecr.us-east-1.amazonaws.com/eks-ecr-cicd-app:a26123c3cf58d0131d4a48a98cb964014e04f48c
           ports:
             - containerPort: 5000
 
