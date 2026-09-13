@@ -19,7 +19,7 @@ spec:
       containers:
         - name: eks-cicd-app
 
-          image: 371637912601.dkr.ecr.us-east-1.amazonaws.com/eks-ecr-cicd-app:REPLACE_ME
+          image: image: 371637912601.dkr.ecr.us-east-1.amazonaws.com/eks-ecr-cicd-app:latest
 
           ports:
             - containerPort: 5000
