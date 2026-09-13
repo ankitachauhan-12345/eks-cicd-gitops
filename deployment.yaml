@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-cicd-app
+  namespace: eks-cicd
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: eks-cicd-app
+
+  template:
+    metadata:
+      labels:
+        app: eks-cicd-app
+
+    spec:
+      containers:
+        - name: eks-cicd-app
+
+          image: 371637912601.dkr.ecr.us-east-1.amazonaws.com/eks-ecr-cicd-app:REPLACE_ME
+
+          ports:
+            - containerPort: 5000
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+            limits:
+              cpu: 500m
+              memory: 256Mi
